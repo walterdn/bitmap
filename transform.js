@@ -1,8 +1,11 @@
-var file = process.argv[2] || throw err;
+var file = process.argv[2];
+var newfile = process.argv[3];
+var flag = process.argv[4];
 
 var bitmap = require(__dirname + '/lib/bmpParse').readBMP(file);
+var transform = require(__dirname + '/lib/transform');
 
 bitmap.on('fileread', function(data) {
-  console.log(data);
+  transform.spliceAndWrite(bitmap, newfile, flag);
 });
 
