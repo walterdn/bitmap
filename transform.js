@@ -6,6 +6,6 @@ var bitmap = require(__dirname + '/lib/bmpParse').readBMP(file);
 var transform = require(__dirname + '/lib/transform');
 
 bitmap.on('fileread', function(data) {
-  transform.spliceAndWrite(bitmap, newfile, flag);
+  transform.spliceAndWrite(data, newfile);
 });
 
